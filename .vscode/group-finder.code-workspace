@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "..",
+			"name": "root folder"
+		},
+		{
+			"path": "../src/app/(group-finder)",
+			"name": "group-finder"
+		},
+		{
+			"path": "../src/app/(payload)",
+			"name": "payload"
+		}
+	],
+	"settings": {
+
+	}
+}
