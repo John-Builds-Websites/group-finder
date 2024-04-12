@@ -13,8 +13,13 @@
 			"name": "group-finder router"
 		},
 		{
-			"path": "../src/app/(payload)",
-			"name": "payload"
+			"path": "../src/collections"
+		},
+		{
+			"path": "../src/lib"
+		},
+		{
+			"path": "../src/styles"
 		}
 	],
 	"settings": {
