@@ -23,6 +23,10 @@ export const Groups: CollectionConfig = {
       type: 'relationship',
       relationTo: 'users',
       hasMany: true,
+      hidden: true,
+      admin: {
+        readOnly: true,
+      },
     },
     {
       name: 'moderators',
@@ -30,6 +34,13 @@ export const Groups: CollectionConfig = {
       type: 'relationship',
       relationTo: 'users',
       hasMany: true,
+      hidden: false,
+      admin: {
+        className: 'mod',
+        isSortable: true,
+        readOnly: true,
+      },
+
     },
     {
       name: 'attendee-types',
