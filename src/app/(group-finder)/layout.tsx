@@ -11,7 +11,14 @@ export const metadata: Metadata = {
 	title: "Group Finder",
 	description: "Find YOUR local group",
 	creator: "John Dennehy",
-	keywords: ["group", "finder", "local", "community",	"social", "johnbuildswebsites"],
+	keywords: [
+		"group",
+		"finder",
+		"local",
+		"community",
+		"social",
+		"johnbuildswebsites",
+	],
 };
 
 type RootLayoutProps = {
@@ -22,14 +29,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
 	return (
 		// <ClerkProvider>
 		<html lang="en">
-			<body className={
-				cn(
-					"min-h-screen relative bg-background font-sans antialiased",
+			<body
+				className={cn(
+					"relative h-full bg-background font-sans antialiased",
 					GeistSans.className,
-				  )
-			}>
+				)}
+			>
 				{/* <Header title="Test" /> */}
-				{children}
+				<main className="relative flex flex-col min-h-screen">{children}</main>
 				{/* <Toaster /> */}
 			</body>
 		</html>
