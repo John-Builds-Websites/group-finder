@@ -5,8 +5,12 @@
 			"name": "root folder"
 		},
 		{
+			"path": "../src/components",
+			"name": "components"
+		},
+		{
 			"path": "../src/app/(group-finder)",
-			"name": "group-finder"
+			"name": "group-finder router"
 		},
 		{
 			"path": "../src/app/(payload)",
