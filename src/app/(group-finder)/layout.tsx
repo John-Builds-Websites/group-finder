@@ -4,7 +4,7 @@
 // import { GeistSans } from "geist/font/sans";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
-// import "./globals.css";
+import "@/styles/globals.css";
 
 export const metadata: Metadata = {
   title: "Group Finder",
