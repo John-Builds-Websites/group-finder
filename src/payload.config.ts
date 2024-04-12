@@ -7,6 +7,8 @@ import { buildConfig } from 'payload/config'
 import { fileURLToPath } from 'url'
 
 import { Users } from './collections/Users'
+import { Groups } from './collections/Groups'
+import { AttendTypes } from './collections/AttendeeTypes'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -15,7 +17,7 @@ export default buildConfig({
   admin: {
     user: Users.slug,
   },
-  collections: [Users],
+  collections: [Users, Groups, AttendTypes],
   editor: lexicalEditor({}),
   // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
