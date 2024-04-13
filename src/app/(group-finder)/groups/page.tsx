@@ -1,5 +1,5 @@
 import Container from '@/components/layout/Container'
-import configPromise from '@payload-config'
+import configPromise from '@/app/(payload)/payload.config'
 import { getPayload } from 'payload'
 
 export default async function GroupsPage () {

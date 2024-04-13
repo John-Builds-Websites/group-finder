@@ -1,4 +1,4 @@
-import configPromise from '@payload-config'
+import configPromise from '@/app/(payload)/payload.config'
 import { getPayload } from 'payload'
 
 export const GET = async () => {
