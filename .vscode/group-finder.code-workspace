@@ -33,7 +33,10 @@
 			"johnbuildswebsites",
 			"tailwindcss",
 			"payloadcms"
-		]
+		],
+		"editor.tabSize": 2,
+		"files.autoSave": "afterDelay",
+		"editor.autoIndent": "advanced"
 
 	},
 	"extensions": {
