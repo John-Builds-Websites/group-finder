@@ -2,7 +2,7 @@
 	"folders": [
 		{
 			"path": "..",
-			"name": "root folder"
+			"name": "root"
 		},
 		{
 			"path": "../src/components",
@@ -23,6 +23,21 @@
 		}
 	],
 	"settings": {
+		"cSpell.words": [
+			"clsx",
+			"Dennehy",
+			"devsafe",
+			"johnbuildswebsites",
+			"tailwindcss",
+			"payloadcms"
+		]
 
+	},
+	"extensions": {
+		"recommendations": [
+			"bradlc.vscode-tailwindcss",
+			"biomejs.biome",
+			"streetsidesoftware.code-spell-checker"
+		]
 	}
 }
