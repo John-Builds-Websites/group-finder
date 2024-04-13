@@ -1,16 +1,15 @@
 {
 	"folders": [
 		{
-			"path": "..",
-			"name": "root"
+			"name": "Group Finder",
+			"path": "../src/app/(group-finder)"
 		},
 		{
-			"path": "../src/components",
-			"name": "components"
+			"name": "Payload-CMS",
+			"path": "../src/app/(payload)"
 		},
 		{
-			"path": "../src/app/(group-finder)",
-			"name": "group-finder router"
+			"path": "../src/components"
 		},
 		{
 			"path": "../src/collections"
@@ -20,6 +19,10 @@
 		},
 		{
 			"path": "../src/styles"
+		},
+		{
+			"name": "root",
+			"path": ".."
 		}
 	],
 	"settings": {
