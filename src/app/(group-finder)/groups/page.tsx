@@ -1,5 +1,7 @@
+'use server'
+
 import Container from '@/components/layout/Container'
-import configPromise from '@/app/(payload)/payload.config'
+import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
 export default async function GroupsPage () {
@@ -7,11 +9,9 @@ export default async function GroupsPage () {
     config: configPromise,
   })
 
-  const data = await payload.find({
+  const {docs: groups} = await payload.find({
     collection: 'groups',
   })
-
-  const groups = data.docs || []
 
   return (
     <Container>
