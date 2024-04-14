@@ -6,6 +6,7 @@ import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "@/styles/globals.css";
 import { cn } from "@/lib/utils";
+import NavBar from "@/components/layout/NavBar";
 
 export const metadata: Metadata = {
 	title: "Group Finder",
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			>
 				{/* <Header title="Test" /> */}
 				<main className="relative flex flex-col min-h-screen">
+					<NavBar/>
 					<div className="flex-grow flex-1">
 						{children}
 					</div>
