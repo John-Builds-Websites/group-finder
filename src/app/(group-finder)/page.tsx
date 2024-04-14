@@ -50,16 +50,16 @@ export default async function HomePage() {
 			</Container>
 
 			<section
-				className="py-20 bg-violet-50  ">
+				className="py-20 bg-violet-50 border-t-2  ">
 				<Container>
 					<div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
 						{services.map(({ name, Icon, description }) => (
 							<div key={name} className="flex flex-col items-center space-y-4">
-								<div className="p-4 text-white bg-gradient-to-br to-indigo-500 via-violet-500 from-purple-500 rounded-full">
-									<Icon size={48} />
+								<div className="p-4  text-white text-lg md:text-xl bg-gradient-to-br to-indigo-500 via-violet-500 from-purple-500 rounded-full">
+									<Icon size={36} />
 								</div>
 								<h3 className="text-2xl font-bold text-gray-800">{name}</h3>
-								<p className="text-lg text-gray-700">{description}</p>
+								<p className="text-lg text-balance text-center max-w-30 text-gray-700">{description}</p>
 							</div>
 						))}
 					</div>
