@@ -1,6 +1,5 @@
 // import Header from "@/components/header";
 // import { Toaster } from "@/components/ui/sonner";
-// import { ClerkProvider } from "@clerk/nextjs";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Inter, Roboto_Mono } from "next/font/google";
 import type { Metadata } from "next";
@@ -41,7 +40,6 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
 	return (
-		// <ClerkProvider>
 		<html lang="en">
 			<body
 				className={cn(
@@ -50,6 +48,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 					robotoMono.variable,
 				)}
 			>
+				<SpeedInsights />
 				{/* <Header title="Test" /> */}
 				<main className="relative flex flex-col min-h-screen">
 					<NavBar />
@@ -58,6 +57,5 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				{/* <Toaster /> */}
 			</body>
 		</html>
-		// </ClerkProvider>
 	);
 }
