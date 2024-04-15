@@ -1,9 +1,9 @@
-import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
 import path from 'path'
-import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url'
+import { postgresAdapter } from '@payloadcms/db-postgres'
+import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
+import { buildConfig } from 'payload/config'
 
 import collections, { Users } from './collections'
 
@@ -13,7 +13,7 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
-    dateFormat: 'dd-MM-YYYY',
+    dateFormat: 'dd-MM-yyyy',
   },
   collections: collections,
   // components: {

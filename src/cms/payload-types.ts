@@ -8,8 +8,6 @@
 
 export interface Config {
   collections: {
-    'contact-types': ContactType;
-    'contact-details': ContactDetail;
     groups: Group;
     users: User;
     'payload-preferences': PayloadPreference;
@@ -23,43 +21,22 @@ export interface Config {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact-types".
- */
-export interface ContactType {
-  id: number;
-  name: string;
-  description?: string | null;
-  type: 'email' | 'phone' | 'social' | 'url' | 'other';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "contact-details".
- */
-export interface ContactDetail {
-  id: number;
-  name: string;
-  type: number | ContactType;
-  value: string;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "groups".
  */
 export interface Group {
   id: number;
   title: string;
   description?: string | null;
-  followers?: (number | User)[] | null;
-  moderators?: (number | User)[] | null;
-  'attendee-categories'?:
-    | ('new_born' | 'infant' | 'toddler' | 'preschooler' | 'school_age' | 'teen' | 'expectant_parent')
-    | null;
-  'contact-details'?: (number | ContactDetail)[] | null;
-  status?: ('pending' | 'active' | 'inactive' | 'archived') | null;
+  'attendee-categories': (
+    | 'new_born'
+    | 'infant'
+    | 'toddler'
+    | 'preschooler'
+    | 'school_age'
+    | 'teen'
+    | 'expectant_parent'
+  )[];
+  status: 'pending' | 'active' | 'inactive' | 'archived';
   updatedAt: string;
   createdAt: string;
 }
