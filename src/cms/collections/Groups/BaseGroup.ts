@@ -1,3 +1,4 @@
+import { ATTENDEE_CATEGORIES, GROUP_STATUSES } from '@/config'
 import type { CollectionConfig } from 'payload/types'
 
 export const Groups: CollectionConfig = {
@@ -43,11 +44,10 @@ export const Groups: CollectionConfig = {
 
     },
     {
-      name: 'attendee-types',
-      label: 'Suitable for',
-      type: 'relationship',
-      relationTo: 'attendee-types',
-      hasMany: true,
+      name: "attendee-categories",
+      label: "Attendee Categories",
+      type: "select",
+      options: ATTENDEE_CATEGORIES.map(({ value, label }) => ({ label, value })),
     },
     {
       name: 'contact-details',
@@ -60,20 +60,7 @@ export const Groups: CollectionConfig = {
       name: 'status',
       label: 'Status',
       type: 'select',
-      options: [
-        {
-          label: 'Draft',
-          value: 'draft',
-        },
-        {
-          label: 'Published',
-          value: 'published',
-        },
-        {
-          label: 'Archived',
-          value: 'archived',
-        },
-      ],
+      options: GROUP_STATUSES.map(({ value, label }) => ({ label, value })),
       defaultValue: 'draft',
     }
     // Email added by default

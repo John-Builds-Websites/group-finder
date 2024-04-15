@@ -1,11 +1,9 @@
+import { ContactDetails, ContactTypes } from './ContactDetails'
+import { Groups } from './Groups/BaseGroup'
 import { Users } from './Users'
-import { AttendTypes } from './AttendeeTypes'
-import { ContactTypes, ContactDetails } from './ContactDetails'
-import { Groups } from './Groups'
 
 //  Collections array consumed by PayloadCMS config
 export const collections = [
-  AttendTypes,
   ContactTypes,
   ContactDetails,
   Groups,
@@ -13,8 +11,7 @@ export const collections = [
 ]
 
 export * from './Users'
-export * from './AttendeeTypes'
 export * from './ContactDetails'
-export * from './Groups'
+export * from './Groups/BaseGroup'
 
 export default collections
