@@ -8,7 +8,6 @@
 
 export interface Config {
   collections: {
-    'attendee-types': AttendeeType;
     'contact-types': ContactType;
     'contact-details': ContactDetail;
     groups: Group;
@@ -21,17 +20,6 @@ export interface Config {
   user: User & {
     collection: 'users';
   };
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "attendee-types".
- */
-export interface AttendeeType {
-  id: number;
-  name: string;
-  description?: string | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -67,9 +55,11 @@ export interface Group {
   description?: string | null;
   followers?: (number | User)[] | null;
   moderators?: (number | User)[] | null;
-  'attendee-types'?: (number | AttendeeType)[] | null;
+  'attendee-categories'?:
+    | ('new_born' | 'infant' | 'toddler' | 'preschooler' | 'school_age' | 'teen' | 'expectant_parent')
+    | null;
   'contact-details'?: (number | ContactDetail)[] | null;
-  status?: ('draft' | 'published' | 'archived') | null;
+  status?: ('pending' | 'active' | 'inactive' | 'archived') | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -79,7 +69,7 @@ export interface Group {
  */
 export interface User {
   id: number;
-  role: 'user' | 'moderator' | 'admin' | 'super-admin';
+  role: 'user' | 'moderator' | 'admin' | 'super_admin';
   updatedAt: string;
   createdAt: string;
   email: string;
