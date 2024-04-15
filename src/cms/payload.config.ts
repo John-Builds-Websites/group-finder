@@ -1,14 +1,13 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-// import { payloadCloud } from '@payloadcms/plugin-cloud'
 import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
 import path from 'path'
 import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-import { Users } from '../../collections/Users'
-import { Groups } from '../../collections/Groups'
-import { AttendTypes } from '../../collections/AttendeeTypes'
+import { Users } from './collections/Users'
+import { Groups } from './collections/Groups'
+import { AttendTypes } from './collections/AttendeeTypes'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -19,7 +18,6 @@ export default buildConfig({
   },
   collections: [Users, Groups, AttendTypes],
   editor: lexicalEditor({}),
-  // plugins: [payloadCloud()], // TODO: Re-enable when cloud supports 3.0
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
@@ -29,6 +27,7 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
   // make sure to install it and pass it to the config.

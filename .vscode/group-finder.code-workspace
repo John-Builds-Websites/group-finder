@@ -1,18 +1,15 @@
 {
 	"folders": [
 		{
-			"name": "Group Finder",
+			"name": "App Routes",
 			"path": "../src/app/(group-finder)"
 		},
 		{
-			"name": "Payload-CMS",
-			"path": "../src/app/(payload)"
+			"name": "Payload CMS",
+			"path": "../src/cms"
 		},
 		{
 			"path": "../src/components"
-		},
-		{
-			"path": "../src/collections"
 		},
 		{
 			"path": "../src/lib"
@@ -34,10 +31,14 @@
 			"tailwindcss",
 			"payloadcms"
 		],
+		"css.validate": false,
+		"editor.inlineSuggest.enabled": true,
+		"editor.quickSuggestions": {
+			"strings": true
+		},
 		"editor.tabSize": 2,
-		"files.autoSave": "afterDelay",
-		"editor.autoIndent": "advanced"
-
+		"editor.autoIndent": "advanced",
+		"files.autoSave": "off"
 	},
 	"extensions": {
 		"recommendations": [
