@@ -5,9 +5,7 @@ import { buildConfig } from 'payload/config'
 // import sharp from 'sharp'
 import { fileURLToPath } from 'url'
 
-import { Users } from './collections/Users'
-import { Groups } from './collections/Groups'
-import { AttendTypes } from './collections/AttendeeTypes'
+import collections, { Users } from './collections'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -17,7 +15,13 @@ export default buildConfig({
     user: Users.slug,
     dateFormat: 'dd-MM-YYYY',
   },
-  collections: [Users, Groups, AttendTypes],
+  collections: collections,
+  // components: {
+  //   // Add your components here
+  // },
+  // hooks: {
+  //   // Add your hooks here
+  // },
   editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {

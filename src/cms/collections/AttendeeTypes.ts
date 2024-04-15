@@ -11,6 +11,7 @@ export const AttendTypes: CollectionConfig = {
       label: 'Name',
       type: 'text',
       required: true,
+      unique: true,
     },
     {
       name: 'description',

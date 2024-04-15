@@ -8,9 +8,11 @@
 
 export interface Config {
   collections: {
-    users: User;
-    groups: Group;
     'attendee-types': AttendeeType;
+    'contact-types': ContactType;
+    'contact-details': ContactDetail;
+    groups: Group;
+    users: User;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -19,6 +21,57 @@ export interface Config {
   user: User & {
     collection: 'users';
   };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attendee-types".
+ */
+export interface AttendeeType {
+  id: number;
+  name: string;
+  description?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-types".
+ */
+export interface ContactType {
+  id: number;
+  name: string;
+  description?: string | null;
+  type: 'email' | 'phone' | 'social' | 'url' | 'other';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "contact-details".
+ */
+export interface ContactDetail {
+  id: number;
+  name: string;
+  type: number | ContactType;
+  value: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "groups".
+ */
+export interface Group {
+  id: number;
+  title: string;
+  description?: string | null;
+  followers?: (number | User)[] | null;
+  moderators?: (number | User)[] | null;
+  'attendee-types'?: (number | AttendeeType)[] | null;
+  'contact-details'?: (number | ContactDetail)[] | null;
+  status?: ('draft' | 'published' | 'archived') | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -37,31 +90,6 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "groups".
- */
-export interface Group {
-  id: number;
-  title: string;
-  description?: string | null;
-  followers?: (number | User)[] | null;
-  moderators?: (number | User)[] | null;
-  'attendee-types'?: (number | AttendeeType)[] | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "attendee-types".
- */
-export interface AttendeeType {
-  id: number;
-  name: string;
-  description?: string | null;
-  updatedAt: string;
-  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
