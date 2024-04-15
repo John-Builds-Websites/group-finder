@@ -14,7 +14,7 @@
     "generate:types": "npx payload generate:types"
   },
   "engines": {
-    "node": ">=18.19.0"
+    "node": "20.11.1"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.0.0-beta.10",
