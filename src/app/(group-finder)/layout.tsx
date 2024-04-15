@@ -1,7 +1,7 @@
 // import Header from "@/components/header";
 // import { Toaster } from "@/components/ui/sonner";
 // import { ClerkProvider } from "@clerk/nextjs";
-import { GeistSans } from "geist/font/sans";
+import { Inter, Roboto_Mono } from 'next/font/google'
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "@/styles/globals.css";
@@ -22,6 +22,18 @@ export const metadata: Metadata = {
 	],
 };
 
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+})
+
+const robotoMono = Roboto_Mono({
+	subsets: ['latin'],
+	display: 'swap',
+	variable: '--font-roboto-mono',
+})
+
 type RootLayoutProps = {
 	children: ReactNode;
 };
@@ -33,7 +45,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			<body
 				className={cn(
 					"relative h-full bg-background font-sans antialiased",
-					GeistSans.className,
+					inter.variable,
+					robotoMono.variable
 				)}
 			>
 				{/* <Header title="Test" /> */}
