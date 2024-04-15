@@ -15,6 +15,7 @@ const dirname = path.dirname(filename)
 export default buildConfig({
   admin: {
     user: Users.slug,
+    dateFormat: 'dd-MM-YYYY',
   },
   collections: [Users, Groups, AttendTypes],
   editor: lexicalEditor({}),
