@@ -1,7 +1,8 @@
 // import Header from "@/components/header";
 // import { Toaster } from "@/components/ui/sonner";
 // import { ClerkProvider } from "@clerk/nextjs";
-import { Inter, Roboto_Mono } from 'next/font/google'
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Inter, Roboto_Mono } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "@/styles/globals.css";
@@ -23,16 +24,16 @@ export const metadata: Metadata = {
 };
 
 const inter = Inter({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-inter',
-})
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-inter",
+});
 
 const robotoMono = Roboto_Mono({
-	subsets: ['latin'],
-	display: 'swap',
-	variable: '--font-roboto-mono',
-})
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-roboto-mono",
+});
 
 type RootLayoutProps = {
 	children: ReactNode;
@@ -46,17 +47,14 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				className={cn(
 					"relative h-full bg-background font-sans antialiased",
 					inter.variable,
-					robotoMono.variable
+					robotoMono.variable,
 				)}
 			>
 				{/* <Header title="Test" /> */}
 				<main className="relative flex flex-col min-h-screen">
-					<NavBar/>
-					<div className="flex-grow flex-1">
-						{children}
-					</div>
-					
-					</main>
+					<NavBar />
+					<div className="flex-grow flex-1">{children}</div>
+				</main>
 				{/* <Toaster /> */}
 			</body>
 		</html>
