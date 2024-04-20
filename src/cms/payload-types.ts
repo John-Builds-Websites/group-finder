@@ -8,7 +8,9 @@
 
 export interface Config {
   collections: {
+    'attendee-categories': AttendeeCategory;
     groups: Group;
+    locations: Location;
     users: User;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -21,22 +23,48 @@ export interface Config {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "attendee-categories".
+ */
+export interface AttendeeCategory {
+  id: number;
+  name: string;
+  label: string;
+  description: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "groups".
  */
 export interface Group {
-  id: number;
-  title: string;
+  name: string;
   description?: string | null;
-  'attendee-categories': (
-    | 'new_born'
-    | 'infant'
-    | 'toddler'
-    | 'preschooler'
-    | 'school_age'
-    | 'teen'
-    | 'expectant_parent'
-  )[];
+  id: string;
+  slug: string;
+  attendeeCategories: (number | AttendeeCategory)[];
+  location: number | Location;
+  moderators?: (number | User)[] | null;
   status: 'pending' | 'active' | 'inactive' | 'archived';
+  price?:
+    | {
+        'price-label': string;
+        amount: number;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "locations".
+ */
+export interface Location {
+  id: number;
+  name: string;
+  postcode: string;
+  address: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -46,7 +74,11 @@ export interface Group {
  */
 export interface User {
   id: number;
-  role: 'user' | 'moderator' | 'admin' | 'super_admin';
+  firstName: string;
+  lastName: string;
+  role: 'user' | 'moderator' | 'admin';
+  groupsFollowed?: (string | Group)[] | null;
+  groupsManaged?: (string | Group)[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
