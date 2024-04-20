@@ -18,10 +18,22 @@
 			"roboto",
 			"tailwindcss"
 		],
+		// Tailwind Settings
 		"css.validate": false,
 		"editor.inlineSuggest.enabled": true,
 		"editor.quickSuggestions": {
 			"strings": true
+		},
+		"tailwindCSS.emmetCompletions": true,
+		"tailwindCSS.includeLanguages": {
+			"plaintext": "html",
+			"typescript": "typescript",
+			"typescriptreact": "typescript",
+			"markdown": "html",
+			"json": "json",
+			"css": "html",
+			"scss": "html",
+			"html": "html"
 		},
 		"editor.tabSize": 2,
 		"editor.autoIndent": "advanced",
