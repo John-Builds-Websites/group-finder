@@ -14,6 +14,13 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     dateFormat: 'dd-MM-yyyy',
+    meta: {
+      // favicon: '/favicon.ico',
+      // ogImage: '/logo.png',
+      titleSuffix: ' | Group Finder',
+    
+    },
+    avatar: 'gravatar',
   },
   collections: collections,
   // components: {
@@ -32,6 +39,12 @@ export default buildConfig({
       connectionString: process.env.DATABASE_URI || '',
     },
   }),
+  upload: {
+    staticURL: '/uploads',
+    staticPath: path.resolve(dirname, '../uploads'),
+
+  },
+   
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
