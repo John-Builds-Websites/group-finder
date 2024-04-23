@@ -14,7 +14,7 @@
     "generate:types": "cross-env NODE_OPTIONS=--no-deprecation payload generate:types"
   },
   "engines": {
-    "node": "20.11.1"
+    "node": "20.x"
   },
   "dependencies": {
     "@next/third-parties": "14.2.0-canary.23",
