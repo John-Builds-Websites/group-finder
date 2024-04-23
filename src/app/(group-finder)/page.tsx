@@ -35,7 +35,7 @@ export default async function HomePage() {
 					</h1>
 					<p className="mt-6 text-balance text-lg md:text-xl text-muted-foreground max-w-prose">
 						Your guide to finding local parent and play groups. Search for
-						groups, see what's happening, and connect with other parents and
+						groups, see what&apos;s happening, and connect with other parents and
 						carers.
 					</p>
 					<div className=" mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
