@@ -3,6 +3,7 @@ import Container from "@/components/layout/Container";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 
 export default async function GroupsPage() {
+	
 	const payload = await getPayloadHMR({
 		config: configPromise,
 		onInit: (payload) => {
@@ -12,13 +13,14 @@ export default async function GroupsPage() {
 
 	const groupsCollection = await payload.find({
 		collection: "groups",
+		depth: 3,
 	});
 
 	const groups = groupsCollection.docs
 	
 	return (
 		<Container>
-			{/* <pre>{JSON.stringify(groups, null, 2)}</pre> */}
+			<pre>{JSON.stringify(groups, null, 2)}</pre>
 			<h1>Groups</h1>
 			<ul className="grid gap-2">
 				{groups.map((group) => (
@@ -40,7 +42,7 @@ export default async function GroupsPage() {
 
             {group.attendeeCategories.map((attendeeType) => {
 							if (typeof attendeeType === "number") return;
-              return <p key={attendeeType.name}>{attendeeType.label}</p>;
+              return <p key={attendeeType.name}>{attendeeType.name}</p>;
             })}
 
 					</li>
