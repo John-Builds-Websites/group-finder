@@ -1,11 +1,21 @@
 {
 	"folders": [
-		{
-			"path": "../src"
-		},
+		// {
+		// 	"path": "../src"
+		// },
 		{
 			"name": "root",
-			"path": ".."
+			"path": "..",
+			"folders": [
+				{
+					"name": "src",
+					"path": "src"
+				},
+				{
+					"name": "public",
+					"path": "public"
+				}
+			]
 		}
 	],
 	"settings": {
@@ -45,6 +55,9 @@
 			"source.organizeImports.biome": "explicit"
 		},
 		"files.autoSave": "off",
+		"[typescriptreact]": {
+			"editor.defaultFormatter": "vscode.typescript-language-features"
+		},
 	},
 	"extensions": {
 		"recommendations": [
