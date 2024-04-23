@@ -12,6 +12,7 @@ export interface Config {
     groups: Group;
     locations: Location;
     users: User;
+    'weekly-schedule': WeeklySchedule;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -28,7 +29,6 @@ export interface Config {
 export interface AttendeeCategory {
   id: number;
   name: string;
-  label: string;
   description: string;
   updatedAt: string;
   createdAt: string;
@@ -44,6 +44,25 @@ export interface Group {
   slug: string;
   attendeeCategories: (number | AttendeeCategory)[];
   location: number | Location;
+  schedule?:
+    | {
+        weekdays: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
+        startTime: string;
+        endTime: string;
+        additionalInfo?: string | null;
+        location?: (number | null) | Location;
+        id?: string | null;
+      }[]
+    | null;
+  'booking-required'?: boolean | null;
+  contactDetails?:
+    | {
+        type: 'url' | 'email' | 'phone';
+        value: string;
+        customLabel?: string | null;
+        id?: string | null;
+      }[]
+    | null;
   moderators?: (number | User)[] | null;
   status: 'pending' | 'active' | 'inactive' | 'archived';
   price?:
@@ -89,6 +108,21 @@ export interface User {
   loginAttempts?: number | null;
   lockUntil?: string | null;
   password?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weekly-schedule".
+ */
+export interface WeeklySchedule {
+  id: number;
+  weekday: 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
+  startTime: string;
+  endTime: string;
+  additionalInfo?: string | null;
+  location?: (number | null) | Location;
+  status?: ('active' | 'cancelled' | 'postponed' | 'hiatus' | 'tbc') | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

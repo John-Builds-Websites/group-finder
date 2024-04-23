@@ -28,6 +28,26 @@ export const ContactDetailsField: Field = {
           name: "value",
           type: "text",
           required: true,
+          hooks: {
+            beforeValidate: [
+              ({siblingData}) => {
+                if (siblingData?.type === "email" && !siblingData.value.includes("@")) {
+                  return "Email addresses must contain an @ symbol";
+                }
+                
+                if (siblingData?.type === "phone" && !siblingData.value.match(/^\+?\d+$/)) {
+                  return "Phone numbers must contain only numbers and an optional + at the start";
+                }
+
+                if (siblingData?.type === "url" && !siblingData.value.match(/^(https?:\/\/)/)) {
+                  return "URLs must start with http:// or https://";
+                }
+
+                return
+              }
+            ],
+          },
+
         },
         {
           name: "customLabel",
