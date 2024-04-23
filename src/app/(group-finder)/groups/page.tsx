@@ -3,7 +3,7 @@ import Container from "@/components/layout/Container";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 
 export default async function GroupsPage() {
-	
+
 	const payload = await getPayloadHMR({
 		config: configPromise,
 		onInit: (payload) => {
@@ -17,7 +17,7 @@ export default async function GroupsPage() {
 	});
 
 	const groups = groupsCollection.docs
-	
+
 	return (
 		<Container>
 			<pre>{JSON.stringify(groups, null, 2)}</pre>
@@ -40,10 +40,10 @@ export default async function GroupsPage() {
 							return <p key={moderator.id}>{moderator.email}</p>;
 						})}
 
-            {group.attendeeCategories.map((attendeeType) => {
+						{group.attendeeCategories.map((attendeeType) => {
 							if (typeof attendeeType === "number") return;
-              return <p key={attendeeType.name}>{attendeeType.name}</p>;
-            })}
+							return <p key={attendeeType.name}>{attendeeType.name}</p>;
+						})}
 
 					</li>
 				))}
