@@ -1,19 +1,16 @@
 import { User } from "@payload-types";
 import { Access } from "payload/types";
 
-export const adminOnly =
-	(): Access =>
-	async ({ req }) => {
-		const user = req.user as User | undefined;
+export const adminOnly: Access = async ({ req }) => {
+	const user = req.user as User | undefined;
 
-		if (!user) return false;
-		if (user?.role === "admin") return true;
+	if (!user) return false;
+	if (user?.role === "admin") return true;
 
-		return false;
-	};
+	return false;
+};
 
-export const moderators =
-	(): Access =>
+export const moderators: Access =
 	async ({ req }) => {
 		const user = req.user as User | undefined;
 
@@ -24,9 +21,11 @@ export const moderators =
 		return false;
 	};
 
-export const everyone =
-	(): Access =>
+export const allUsers: Access =
 	async ({ req }) => {
-		//# always return true for everyone
+		const user = req.user as User | undefined;
+
+		//# always return true for all users
+		if (!user) return false;
 		return true;
 	};
