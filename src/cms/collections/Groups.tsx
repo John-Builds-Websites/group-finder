@@ -1,13 +1,17 @@
 import { ATTENDEE_CATEGORIES, GROUP_STATUSES } from "@/config";
-import { nanoid } from "nanoid";
 import type { CollectionConfig } from "payload/types";
 import slugify from "slugify";
 import { ContactDetailsField } from "@/cms/fields/ContactDetailsField";
-import { CustomIDField } from "@/cms/fields/CustomIDField";
+import { adminOnly } from "../access-rights";
 
 export const Groups: CollectionConfig = {
 	slug: "groups",
-
+	access: {
+		read: adminOnly,
+		create: adminOnly,
+		update: adminOnly,
+		delete: adminOnly,
+	},
 	admin: {
 		useAsTitle: "name",
 		defaultColumns: ["name", "slug", "attendee_categories", "status"],
@@ -18,6 +22,7 @@ export const Groups: CollectionConfig = {
 		listSearchableFields: ["name", "status", "attendee_categories"],
 		// description: "A collection of groups",
 		hideAPIURL: true,
+
 	},
 
 	fields: [
@@ -32,22 +37,24 @@ export const Groups: CollectionConfig = {
 			label: "Description",
 			type: "textarea",
 		},
-		CustomIDField,
 		{
 			name: "slug",
 			type: "text",
 			required: true,
 			hooks: {
 				beforeValidate: [
-					({ data, value }) => {
-						if (!value || value === "") {
-							return slugify(data?.name, {
+					({ data, operation }) => {
+						if (operation === 'create') {
+							const newSlug = slugify(data?.name, {
 								lower: true,
 								remove: /[*+~\/\\.()'"!?#\.,:@]/g,
 							});
+							console.log("slug", newSlug);
+							return newSlug
 						}
 					},
 				],
+
 			},
 			admin: {
 				position: "sidebar",
@@ -58,7 +65,7 @@ export const Groups: CollectionConfig = {
 			label: "Attendee Categories",
 			type: "relationship",
 			relationTo: "attendee-categories",
-			required: true,
+			required: false,
 			hasMany: true,
 			admin: {
 				allowCreate: false,
@@ -69,7 +76,7 @@ export const Groups: CollectionConfig = {
 			label: "Location",
 			type: "relationship",
 			relationTo: "locations",
-			required: true,
+			required: false,
 		},
 		{
 			name: "schedule",
@@ -167,7 +174,13 @@ export const Groups: CollectionConfig = {
 			type: "checkbox",
 			defaultValue: false,
 		},
-		ContactDetailsField,
+		ContactDetailsField,				// beforeValidate: [
+		// 	({ data }) => {
+		// 		const newSlug = slugify(data!.name);
+		// 		console.log("newSlug", newSlug);
+		// 		return { ...data, slug: newSlug };
+		// 	},
+		// ],
 		{
 			name: "moderators",
 			label: "Moderators",
