@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import { adminOnly } from "../access-rights";
 
 export const Categories: CollectionConfig = {
 	slug: "attendee-categories",
@@ -7,10 +8,10 @@ export const Categories: CollectionConfig = {
 		plural: "Attendee Categories",
 	},
 	access: {
-		// read: () => true,
-		create: ({req}) => req.user && req.user.role === "admin",
-		update: ({req}) => req.user && req.user.role === "admin",
-		delete: ({req}) => req.user && req.user.role === "admin",
+		read: adminOnly,
+		create: adminOnly,
+		update: adminOnly,
+		delete: adminOnly,
 	},
 	admin: {
 		useAsTitle: "name",
@@ -25,7 +26,7 @@ export const Categories: CollectionConfig = {
 		{
 			name: "description",
 			type: "textarea",
-			required: true,
+			// required: true,
 		},
 	],
 
