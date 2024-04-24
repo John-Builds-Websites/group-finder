@@ -13,12 +13,7 @@ export const Locations: CollectionConfig = {
 			label: "Name",
 			type: "text",
 			required: true,
-		},
-		{
-			name: "postcode",
-			label: "Postcode",
-			type: "text",
-			required: true,
+			unique: true,
 		},
     {
       name: "address",
@@ -26,7 +21,13 @@ export const Locations: CollectionConfig = {
       type: "textarea",
       required: true,
     },
+		{
+			name: "postcode",
+			label: "Postcode",
+			type: "text",
+			required: true,
+		},
 	],
 	disableDuplicate: true,
-	versions: true,
+	// versions: true,
 };
