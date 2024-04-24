@@ -29,7 +29,7 @@ export interface Config {
 export interface AttendeeCategory {
   id: number;
   name: string;
-  description: string;
+  description?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -38,12 +38,12 @@ export interface AttendeeCategory {
  * via the `definition` "groups".
  */
 export interface Group {
+  id: number;
   name: string;
   description?: string | null;
-  id: string;
   slug: string;
-  attendeeCategories: (number | AttendeeCategory)[];
-  location: number | Location;
+  attendeeCategories?: (number | AttendeeCategory)[] | null;
+  location?: (number | null) | Location;
   schedule?:
     | {
         weekdays: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
@@ -82,8 +82,8 @@ export interface Group {
 export interface Location {
   id: number;
   name: string;
-  postcode: string;
   address: string;
+  postcode: string;
   updatedAt: string;
   createdAt: string;
 }
@@ -96,8 +96,8 @@ export interface User {
   firstName: string;
   lastName: string;
   role: 'user' | 'moderator' | 'admin';
-  groupsFollowed?: (string | Group)[] | null;
-  groupsManaged?: (string | Group)[] | null;
+  groupsFollowed?: (number | Group)[] | null;
+  groupsManaged?: (number | Group)[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
