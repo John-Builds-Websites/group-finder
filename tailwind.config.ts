@@ -5,7 +5,7 @@ const config = {
   darkMode: ["class"],
   content: [
     './src/**/*.{ts,tsx}',
-	],
+  ],
   prefix: "",
   theme: {
     container: {
@@ -16,10 +16,10 @@ const config = {
       },
     },
     extend: {
-        fontFamily: {
-          sans: ['var(--font-inter)'],
-          mono: ['var(--font-roboto-mono)'],
-        },
+      fontFamily: {
+        sans: ['var(--font-inter)'],
+        mono: ['var(--font-roboto-mono)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -61,6 +61,14 @@ const config = {
         sm: "calc(var(--radius) - 4px)",
       },
       keyframes: {
+        "blob": {
+          "0%": {transform: "translate(0%, 0%) scale(1)"},
+          "25%": {transform: "translate(10%, -5%) scale(1.1)"},
+          "50%": {transform: "translate(5%, 10%) scale(0.9)"},
+          "75%": {transform: "translate(-10%, 5%) scale(1.1)"},
+          "100%": {transform: "translate(0%, 0%) scale(1)"},
+        },
+       
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
@@ -73,6 +81,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "blob": "blob 20s infinite ease-in-out",
       },
     },
   },
