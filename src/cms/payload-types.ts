@@ -27,7 +27,7 @@ export interface Config {
  * via the `definition` "attendee-categories".
  */
 export interface AttendeeCategory {
-  id: number;
+  id: string;
   name: string;
   description?: string | null;
   updatedAt: string;
@@ -38,19 +38,15 @@ export interface AttendeeCategory {
  * via the `definition` "groups".
  */
 export interface Group {
-  id: number;
+  id: string;
   name: string;
   description?: string | null;
   slug: string;
-  attendeeCategories?: (number | AttendeeCategory)[] | null;
-  location?: (number | null) | Location;
+  attendeeCategories?: (string | AttendeeCategory)[] | null;
+  location?: (string | null) | Location;
   schedule?:
     | {
-        weekdays: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
-        startTime: string;
-        endTime: string;
-        additionalInfo?: string | null;
-        location?: (number | null) | Location;
+        'weekly-schedule'?: (string | null) | WeeklySchedule;
         id?: string | null;
       }[]
     | null;
@@ -63,7 +59,7 @@ export interface Group {
         id?: string | null;
       }[]
     | null;
-  moderators?: (number | User)[] | null;
+  moderators?: (string | User)[] | null;
   status: 'pending' | 'active' | 'inactive' | 'archived';
   price?:
     | {
@@ -80,7 +76,7 @@ export interface Group {
  * via the `definition` "locations".
  */
 export interface Location {
-  id: number;
+  id: string;
   name: string;
   address: string;
   postcode: string;
@@ -89,15 +85,29 @@ export interface Location {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "weekly-schedule".
+ */
+export interface WeeklySchedule {
+  id: string;
+  weekday: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
+  startTime: string;
+  endTime: string;
+  additionalInfo?: string | null;
+  location?: (string | null) | Location;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "users".
  */
 export interface User {
-  id: number;
+  id: string;
   firstName: string;
   lastName: string;
   role: 'user' | 'moderator' | 'admin';
-  groupsFollowed?: (number | Group)[] | null;
-  groupsManaged?: (number | Group)[] | null;
+  groupsFollowed?: (string | Group)[] | null;
+  groupsManaged?: (string | Group)[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -111,28 +121,13 @@ export interface User {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "weekly-schedule".
- */
-export interface WeeklySchedule {
-  id: number;
-  weekday: 'mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun';
-  startTime: string;
-  endTime: string;
-  additionalInfo?: string | null;
-  location?: (number | null) | Location;
-  status?: ('active' | 'cancelled' | 'postponed' | 'hiatus' | 'tbc') | null;
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-preferences".
  */
 export interface PayloadPreference {
-  id: number;
+  id: string;
   user: {
     relationTo: 'users';
-    value: number | User;
+    value: string | User;
   };
   key?: string | null;
   value?:
@@ -152,7 +147,7 @@ export interface PayloadPreference {
  * via the `definition` "payload-migrations".
  */
 export interface PayloadMigration {
-  id: number;
+  id: string;
   name?: string | null;
   batch?: number | null;
   updatedAt: string;
