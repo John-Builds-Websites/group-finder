@@ -5,6 +5,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { ReactNode } from "react";
 import { Filter, Heart, Map as MapIcon } from "lucide-react";
+import { BackgroundBlobs } from "@/components/backgrounds/Blobs";
 
 const services = [
 	{
@@ -28,6 +29,7 @@ export default async function HomePage() {
 	return (
 		<>
 			<Container>
+					<BackgroundBlobs />
 				<div className="py-20 mx-auto text-center flex flex-col items-center  max-w-4xl">
 					<h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-sans text-gray-800">
 						Find parent and <HighlightWord>play groups</HighlightWord> in your{" "}
@@ -49,8 +51,8 @@ export default async function HomePage() {
 				</div>
 			</Container>
 
-			<section
-				className="py-20 bg-violet-50 border-t-2  ">
+
+			<section className="py-20 bg-violet-50 border-t-2  ">
 				<Container>
 					<div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
 						{services.map(({ name, Icon, description }) => (
@@ -67,7 +69,6 @@ export default async function HomePage() {
 				</Container>
 			</section>
 
-			
 		</>
 	);
 }
