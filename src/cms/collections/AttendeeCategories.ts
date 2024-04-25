@@ -1,7 +1,7 @@
 import { CollectionConfig } from "payload/types";
 import { adminOnly } from "../access-rights";
 
-export const Categories: CollectionConfig = {
+export const AttendeeCategories: CollectionConfig = {
 	slug: "attendee-categories",
 	labels: {
 		singular: "Attendee Category",
@@ -32,4 +32,4 @@ export const Categories: CollectionConfig = {
 
 };
 
-export default Categories;
+export default AttendeeCategories;
