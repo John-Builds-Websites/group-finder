@@ -17,7 +17,7 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ['var(--font-inter)'],
+        sans: ['var(--font-comfortaa)'],
         mono: ['var(--font-roboto-mono)'],
       },
       colors: {

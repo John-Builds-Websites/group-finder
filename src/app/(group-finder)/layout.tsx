@@ -1,7 +1,7 @@
 // import Header from "@/components/header";
 // import { Toaster } from "@/components/ui/sonner";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Inter, Roboto_Mono } from "next/font/google";
+import { Roboto_Mono, Comfortaa } from "next/font/google";
 import type { Metadata } from "next";
 import { ReactNode } from "react";
 import "@/styles/globals.css";
@@ -22,16 +22,17 @@ export const metadata: Metadata = {
 	],
 };
 
-const inter = Inter({
-	subsets: ["latin"],
-	display: "swap",
-	variable: "--font-inter",
-});
 
 const robotoMono = Roboto_Mono({
 	subsets: ["latin"],
 	display: "swap",
 	variable: "--font-roboto-mono",
+});
+
+const comfortaa = Comfortaa({
+	subsets: ["latin"],
+	display: "swap",
+	variable: "--font-comfortaa",
 });
 
 type RootLayoutProps = {
@@ -44,8 +45,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
 			<body
 				className={cn(
 					"relative h-full bg-background font-sans antialiased",
-					inter.variable,
 					robotoMono.variable,
+					comfortaa.variable
 				)}
 			>
 				<SpeedInsights />
