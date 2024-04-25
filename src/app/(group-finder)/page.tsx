@@ -31,9 +31,9 @@ export default async function HomePage() {
 			<Container>
 					<BackgroundBlobs />
 				<div className="py-20 mx-auto text-center flex flex-col items-center  max-w-4xl">
-					<h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight font-sans text-gray-800">
+					<h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter font-sans text-gray-800">
 						Find parent and <HighlightWord>play groups</HighlightWord> in your{" "}
-						<HighlightWord>local area</HighlightWord>.
+						<HighlightWord>local area</HighlightWord> 🥳.
 					</h1>
 					<p className="mt-6 text-balance text-lg md:text-xl text-muted-foreground max-w-prose">
 						Your guide to finding local parent and play groups. Search for
