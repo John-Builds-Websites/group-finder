@@ -3,7 +3,7 @@ import { CollectionConfig } from "payload/types";
 export const WeeklySchedule: CollectionConfig = {
   slug: "weekly-schedule",
   admin: {
-    useAsTitle: "weekday",
+    useAsTitle: "weekdays",
     // defaultColumns: ["name", "date", "time", "location"],
     // hidden: (user) => {
     //   return !user || user.authed.role !== "admin";
