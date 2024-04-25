@@ -89,7 +89,7 @@ export interface Location {
  */
 export interface WeeklySchedule {
   id: string;
-  weekday: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[];
+  weekdays?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[] | null;
   startTime: string;
   endTime: string;
   additionalInfo?: string | null;

@@ -14,8 +14,8 @@ export const WeeklySchedule: CollectionConfig = {
       type: "row",
       fields: [
         {
-          name: "weekday",
-          label: "Weekday",
+          name: "weekdays",
+          label: "Weekdays",
           type: "select",
           options: [
             { label: "Mon", value: "mon" },
