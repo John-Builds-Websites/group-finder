@@ -6,6 +6,7 @@ export const Locations: CollectionConfig = {
 	admin: {
 		useAsTitle: "name",
 		defaultColumns: ["name", "address", "postcode"],
+		
 	},
 	fields: [
 		{
