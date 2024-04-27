@@ -12,7 +12,7 @@ export interface Config {
     groups: Group;
     locations: Location;
     users: User;
-    'weekly-schedule': WeeklySchedule;
+    schedule: Schedule;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
   };
@@ -30,6 +30,24 @@ export interface AttendeeCategory {
   id: string;
   name: string;
   description?: string | null;
+  color:
+    | 'red'
+    | 'orange'
+    | 'yellow'
+    | 'lime'
+    | 'green'
+    | 'emerald'
+    | 'teal'
+    | 'cyan'
+    | 'sky'
+    | 'blue'
+    | 'purple'
+    | 'indigo'
+    | 'violet'
+    | 'fuchsia'
+    | 'pink'
+    | 'rose';
+  shade: '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '950';
   updatedAt: string;
   createdAt: string;
 }
@@ -44,13 +62,13 @@ export interface Group {
   slug: string;
   attendeeCategories?: (string | AttendeeCategory)[] | null;
   location?: (string | null) | Location;
-  schedule?:
+  weeklySchedule?:
     | {
-        'weekly-schedule'?: (string | null) | WeeklySchedule;
+        schedule?: (string | null) | Schedule;
         id?: string | null;
       }[]
     | null;
-  'booking-required'?: boolean | null;
+  bookingRequired?: boolean | null;
   contactDetails?:
     | {
         type: 'url' | 'email' | 'phone';
@@ -63,7 +81,7 @@ export interface Group {
   status: 'pending' | 'active' | 'inactive' | 'archived';
   price?:
     | {
-        'price-label': string;
+        priceLabel: string;
         amount: number;
         id?: string | null;
       }[]
@@ -85,9 +103,9 @@ export interface Location {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "weekly-schedule".
+ * via the `definition` "schedule".
  */
-export interface WeeklySchedule {
+export interface Schedule {
   id: string;
   weekdays?: ('mon' | 'tue' | 'wed' | 'thu' | 'fri' | 'sat' | 'sun')[] | null;
   startTime: string;
