@@ -4,7 +4,15 @@ import { fontFamily } from "tailwindcss/defaultTheme"
 const config = {
   darkMode: ["class"],
   content: [
-    './src/**/*.{ts,tsx}',
+    './src/app/**/*.{ts,tsx}',
+    './src/components/**/*.{ts,tsx}',
+    './src/cms/**/*.{ts,tsx}',
+  ],
+  safelist: [
+    {
+      pattern: /bg-(red|green|blue|red|yellow|pink|indigo|purple|gray|orange|teal|cyan|sky|violet|fuchsia|rose)-(100|200|300|400|500|600|700|800|900|950)/,
+      variants: ['lg', 'hover', 'focus', 'lg:hover'],
+    },
   ],
   prefix: "",
   theme: {
@@ -81,7 +89,7 @@ const config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        "blob": "blob 20s infinite ease-in-out",
+        "blob": "blob 10s infinite ease-in-out",
       },
     },
   },
