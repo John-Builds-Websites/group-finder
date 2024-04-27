@@ -1,4 +1,4 @@
-import { ATTENDEE_CATEGORIES, GROUP_STATUSES } from "@/config";
+import { GROUP_STATUSES } from "@/config";
 import type { CollectionConfig } from "payload/types";
 import slugify from "slugify";
 import { ContactDetailsField } from "@/cms/fields/ContactDetailsField";
@@ -79,20 +79,20 @@ export const Groups: CollectionConfig = {
 			required: false,
 		},
 		{
-			name: "schedule",
-			label: "Schedule",
+			name: "weeklySchedule",
+			label: "Weekly Schedule",
 			type: "array",
 			fields: [
 				{
+					name: "schedule",
 					type: "relationship",
-					relationTo: "weekly-schedule",
-					name: "weekly-schedule",
+					relationTo: "schedule",
 					required: false,
 				}
 			],
 		},
 		{
-			name: "booking-required",
+			name: "bookingRequired",
 			label: "Booking Required",
 			type: "checkbox",
 			defaultValue: false,
@@ -138,7 +138,7 @@ export const Groups: CollectionConfig = {
 					type: "row",
 					fields: [
 						{
-							name: "price-label",
+							name: "priceLabel",
 							label: "Price Label",
 							type: "text",
 							required: true,
