@@ -1,10 +1,10 @@
 import { AttendeeCategory } from "@/cms/payload-types";
-import { Badge } from "@/components/ui/badge";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
+import { AttendeeTypeBadge } from "./AttendeeTypeBadge";
 
 
 type AttendeeCategoriesProps = {
-	attendeeCategories: (number | AttendeeCategory)[] | null | undefined;
+	attendeeCategories: (string | AttendeeCategory)[] | null | undefined;
 }
 
 export function AttendeeCategories({ attendeeCategories }: AttendeeCategoriesProps) {
@@ -14,26 +14,29 @@ export function AttendeeCategories({ attendeeCategories }: AttendeeCategoriesPro
 	return (
 		<div className="flex flex-row gap-2">
 			<TooltipProvider>
+
 				{attendeeCategories?.map(attendeeType => {
-					if (typeof attendeeType === "number") return;
+					if (typeof attendeeType === "string") return;
 
 					if (attendeeType.description) {
-						return <Tooltip key={attendeeType.id}>
-							<TooltipTrigger>
-								<Badge key={attendeeType.id}>
-									{attendeeType.name}
-								</Badge>
-							</TooltipTrigger>
-							<TooltipContent>
-								{attendeeType.description}
-							</TooltipContent>
-						</Tooltip>;
+						return (
+							<Tooltip key={attendeeType.id}>
+								<TooltipTrigger>
+									<AttendeeTypeBadge key={attendeeType.id} attendeeType={attendeeType} />
+								</TooltipTrigger>
+
+								<TooltipContent>
+									{attendeeType.description}
+								</TooltipContent>
+
+							</Tooltip>
+						);
 					}
 
-					return <Badge key={attendeeType.id}>
-						{attendeeType.name}
-					</Badge>;
+					return <AttendeeTypeBadge key={attendeeType.id} attendeeType={attendeeType} />;
+
 				})}
+
 			</TooltipProvider>
 		</div>
 	);
