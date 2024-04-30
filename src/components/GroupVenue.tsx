@@ -1,6 +1,7 @@
 import NextLink from "next/link";
 import { Button } from "@/components/ui/button";
 import { HiMapPin } from "react-icons/hi2";
+import type { Location as Venue } from "@/cms/payload-types";
 
 export type GroupVenueProps = {
 	venue?: string | Venue | null | undefined;
