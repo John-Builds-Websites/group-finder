@@ -1,7 +1,6 @@
 import { formatTime } from "@/lib/time";
 import type { Group } from "@/cms/payload-types";
 import { BiCalendarWeek } from "react-icons/bi";
-import { AddToCalendarButton } from 'add-to-calendar-button-react';
 
 type ScheduleProps = {
 	weeklySchedule: Group["weeklySchedule"];
@@ -25,13 +24,6 @@ export function Schedule({ weeklySchedule }: ScheduleProps) {
 					return (
 						<li key={weekday} className="py-1 flex flex-row">
 							<div className="capitalize font-bold w-16">{weekday}:</div> {formatTime(schedule.startTime)} - {formatTime(schedule.endTime)}
-							<AddToCalendarButton
-								buttonStyle="flat"
-								startTime={formatTime(schedule.startTime)}
-								endTime={formatTime(schedule.endTime)}
-								recurrence="weekly"
-								recurrence_weekstart={weekday}
-							/>
 						</li>
 					);
 				})}
