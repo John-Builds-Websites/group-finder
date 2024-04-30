@@ -22,10 +22,18 @@ export function Schedule({ weeklySchedule }: ScheduleProps) {
 			return <ul key={schedule.id}>
 
 				{schedule.weekdays.map(weekday => {
-					return <li key={weekday} className="py-1 flex flex-row">
-						<div className="capitalize font-bold w-16">{weekday}:</div> {formatTime(schedule.startTime)} - {formatTime(schedule.endTime)}
-						<AddToCalendarButton providers={['google', 'outlook', 'apple', 'yahoo']} />
-					</li>;
+					return (
+						<li key={weekday} className="py-1 flex flex-row">
+							<div className="capitalize font-bold w-16">{weekday}:</div> {formatTime(schedule.startTime)} - {formatTime(schedule.endTime)}
+							<AddToCalendarButton
+								buttonStyle="flat"
+								startTime={formatTime(schedule.startTime)}
+								endTime={formatTime(schedule.endTime)}
+								recurrence="weekly"
+								recurrence_weekstart={weekday}
+							/>
+						</li>
+					);
 				})}
 
 			</ul>;
