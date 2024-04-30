@@ -18,7 +18,7 @@ export default buildConfig({
       // favicon: '/favicon.ico',
       // ogImage: '/logo.png',
       titleSuffix: ' | Group Finder',
-    
+
     },
     avatar: 'gravatar',
   },
@@ -46,7 +46,8 @@ export default buildConfig({
     staticPath: path.resolve(dirname, '../uploads'),
 
   },
-   
+  indexSortableFields: true,
+
 
   // Sharp is now an optional dependency -
   // if you want to resize images, crop, set focal point, etc.
