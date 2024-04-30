@@ -2,8 +2,6 @@ import configPromise from "@/cms/payload.config";
 import Container from "@/components/layout/Container";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 import { GroupList } from "../../../components/GroupList";
-import { DebuggingJSON } from "../../../components/DebuggingJSON";
-
 
 export default async function GroupsPage() {
 
