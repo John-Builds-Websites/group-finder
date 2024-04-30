@@ -1,7 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { TickIcon } from "@/components/svg/TickIcon";
 
-export function DebuggingJSON(props) {
+type DebuggingJSONProps = {
+	json: JSON;
+};
+
+export function DebuggingJSON({json}: DebuggingJSONProps) {
 	return (<Card>
 		<CardHeader>
 			<CardTitle className="flex flex-row justify-between">
@@ -10,7 +14,7 @@ export function DebuggingJSON(props) {
 		</CardHeader>
 		<CardContent className="overflow-scroll">
 
-			<pre>{JSON.stringify(props.groupsCollection, null, 2)}</pre>
+			<pre>{JSON.stringify(json, null, 2)}</pre>
 		</CardContent>
 	</Card>);
 }
