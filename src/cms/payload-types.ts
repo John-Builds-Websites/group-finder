@@ -47,7 +47,7 @@ export interface AttendeeCategory {
     | 'fuchsia'
     | 'pink'
     | 'rose';
-  shade: '50' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '950';
+  shade: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900' | '950';
   updatedAt: string;
   createdAt: string;
 }
