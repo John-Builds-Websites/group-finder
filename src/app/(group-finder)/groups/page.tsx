@@ -1,12 +1,8 @@
 import configPromise from "@/cms/payload.config";
 import Container from "@/components/layout/Container";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
-import type { AttendeeCategory } from "@payload-types";
-import { Pagination } from "@/components/ui/pagination";
-import { BackgroundBlobs } from "@/components/backgrounds/Blobs";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { GroupList } from "./GroupList";
-import { TickIcon } from "@/components/svg/TickIcon";
+import { GroupList } from "../../../components/GroupList";
+import { DebuggingJSON } from "../../../components/DebuggingJSON";
 
 
 export default async function GroupsPage() {
@@ -37,27 +33,8 @@ export default async function GroupsPage() {
 
 	return (
 		<Container>
-
 			<h1>Groups</h1>
-			{/* <BackgroundBlobs /> */}
-
-
-			<GroupList groups={groups}></GroupList>
-			{/* <Pagination {...groupsCollection} /> */}
-
-			<hr />
-			<Card>
-				<CardHeader>
-					<CardTitle className="flex flex-row justify-between">
-					Raw JSON for debugging<TickIcon/>
-					</CardTitle>
-				</CardHeader>
-				<CardContent className="overflow-scroll">
-
-					<pre>{JSON.stringify(groupsCollection, null, 2)}</pre>
-				</CardContent>
-			</Card>
+			<GroupList groups={groups} />
 		</Container>
 	);
 }
-// Compare this snippet from src/app/%28group-finder%29/groups/GroupList.tsx:
