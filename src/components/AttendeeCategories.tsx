@@ -12,7 +12,7 @@ export function AttendeeCategories({ attendeeCategories }: AttendeeCategoriesPro
 	if (!attendeeCategories) return null;
 
 	return (
-		<div className="flex flex-row gap-2">
+		<div className="flex flex-row gap-2 flex-wrap">
 			<TooltipProvider>
 
 				{attendeeCategories?.map(attendeeType => {
@@ -21,6 +21,7 @@ export function AttendeeCategories({ attendeeCategories }: AttendeeCategoriesPro
 					if (attendeeType.description) {
 						return (
 							<Tooltip key={attendeeType.id}>
+								
 								<TooltipTrigger>
 									<AttendeeTypeBadge key={attendeeType.id} attendeeType={attendeeType} />
 								</TooltipTrigger>
