@@ -19,11 +19,11 @@ export function GroupList({ groups }: GroupListProps) {
 				{groups.length === 0 && <li>No groups found</li>}
 
 				{groups.map(group => <li key={group.name}>
-					<Card className="bg-white bg-opacity-80 bg-blend-multiply">
+					<Card >
 						<CardHeader>
 							<CardTitle className="flex flex-row gap-2 whitespace-nowrap">
 								<span className="text-xl align-middle">{group.name}</span>
-								{(group.status === "active") && <BiBadgeCheck className="text-blue-700" />}
+								{(group.status === "active") && <BiBadgeCheck className="text-primary" />}
 							</CardTitle>
 							<AttendeeCategories attendeeCategories={group.attendeeCategories} />
 							<CardDescription>
