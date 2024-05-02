@@ -29,6 +29,21 @@ const config = {
         mono: ['var(--font-roboto-mono)'],
       },
       colors: {
+        'purple-heart': {
+          '50': '#edefff',
+          '100': '#dee1ff',
+          '200': '#c4c8ff',
+          '300': '#a0a4ff',
+          '400': '#817bfe',
+          '500': '#6d5bf9',
+          '600': '#613eed',
+          '700': '#4e2cc9',
+          '800': '#442aa9',
+          '900': '#3a2a85',
+          '950': '#24184e',
+        },
+
+
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
         ring: "hsl(var(--ring))",
@@ -70,13 +85,13 @@ const config = {
       },
       keyframes: {
         "blob": {
-          "0%": {transform: "translate(0%, 0%) scale(1)"},
-          "25%": {transform: "translate(10%, -5%) scale(1.1)"},
-          "50%": {transform: "translate(5%, 10%) scale(0.9)"},
-          "75%": {transform: "translate(-10%, 5%) scale(1.1)"},
-          "100%": {transform: "translate(0%, 0%) scale(1)"},
+          "0%": { transform: "translate(0%, 0%) scale(1)" },
+          "25%": { transform: "translate(10%, -5%) scale(1.1)" },
+          "50%": { transform: "translate(5%, 10%) scale(0.9)" },
+          "75%": { transform: "translate(-10%, 5%) scale(1.1)" },
+          "100%": { transform: "translate(0%, 0%) scale(1)" },
         },
-       
+
         "accordion-down": {
           from: { height: "0" },
           to: { height: "var(--radix-accordion-content-height)" },
