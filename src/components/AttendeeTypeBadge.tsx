@@ -15,7 +15,7 @@ export function AttendeeTypeBadge({ attendeeType }: AttendeeTypeBadgeProps) {
 			"inline-flex items-center rounded-md border px-2.5 py-0.5 transition-colors focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 border-transparent",
 			bgColorString,
 			// bgHoverColorString,
-			"text-xs font-semibold text-white",
+			"text-xs font-semibold text-white text-nowrap",
 		)}>
 			{attendeeType.name}
 		</div>
