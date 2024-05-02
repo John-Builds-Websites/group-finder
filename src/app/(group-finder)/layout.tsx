@@ -44,7 +44,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 		<html lang="en">
 			<body
 				className={cn(
-					"relative h-full bg-background font-sans antialiased",
+					"relative h-full bg-indigo-500 font-sans antialiased",
 					robotoMono.variable,
 					comfortaa.variable
 				)}
@@ -53,7 +53,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				{/* <Header title="Test" /> */}
 				<main className="relative flex flex-col min-h-screen">
 					<NavBar />
-					<div className="flex-grow flex-1">{children}</div>
+					<div className="flex-grow flex-1 p-2">
+						{children}
+						</div>
 				</main>
 				{/* <Toaster /> */}
 			</body>
