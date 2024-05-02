@@ -7,6 +7,8 @@ import { ReactNode } from "react";
 import { Filter, Heart, Map as MapIcon } from "lucide-react";
 import { BackgroundBlobs } from "@/components/backgrounds/Blobs";
 
+
+// TODO - move this to CMS
 const services = [
 	{
 		name: "Filter",
@@ -28,32 +30,32 @@ const services = [
 export default async function HomePage() {
 	return (
 		<>
-			<Container>
-					<BackgroundBlobs />
-				<div className="py-20 mx-auto text-center flex flex-col items-center  max-w-4xl">
-					<h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter font-sans text-gray-800">
-						Find parent and <HighlightWord>playgroups</HighlightWord> in your{" "}
-						<HighlightWord>local area</HighlightWord> 🥳.
-					</h1>
-					<p className="mt-6 text-balance text-lg md:text-xl text-muted-foreground max-w-prose">
-						Your guide to finding local parent and play groups. Search for
-						groups, see what&apos;s happening, and connect with other parents and
-						carers.
-					</p>
-					<div className=" mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-						<Button variant="default" asChild>
-							<Link href="/groups/">Search Groups</Link>
-						</Button>
-						<Button variant="outline" asChild>
-							<Link href="/groups/">Learn More &rarr;</Link>
-						</Button>
+				<div className="container items-center bg-white rounded-t-lg mx-auto">
+					<div className="py-20 text-center flex flex-col items-center  max-w-4xl mx-auto">
+						<h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-black tracking-tighter font-sans text-gray-800">
+							Find parent and <HighlightWord>playgroups</HighlightWord> in your{" "}
+							<HighlightWord>local area</HighlightWord> 🥳.
+						</h1>
+						<p className="mt-6 text-balance text-lg md:text-xl text-muted-foreground max-w-prose">
+							Your guide to finding local parent and play groups. Search for
+							groups, see what&apos;s happening, and connect with other parents and
+							carers.
+						</p>
+						<div className=" mt-8 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
+							<Button variant="default" asChild>
+								<Link href="/groups/">Search Groups</Link>
+							</Button>
+							<Button variant="outline" asChild>
+								<Link href="/groups/">Learn More &rarr;</Link>
+							</Button>
+						</div>
 					</div>
 				</div>
-			</Container>
+			
 
 
-			<section className="py-20 bg-violet-50 border-t-2  ">
-				<Container>
+			<section className="container py-20 bg-violet-50 rounded-b-lg mx-auto  ">
+
 					<div className="grid grid-cols-1 gap-12 sm:grid-cols-3">
 						{services.map(({ name, Icon, description }) => (
 							<div key={name} className="flex flex-col items-center space-y-4">
@@ -66,7 +68,7 @@ export default async function HomePage() {
 						))}
 					</div>
 
-				</Container>
+
 			</section>
 
 		</>
