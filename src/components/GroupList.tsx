@@ -23,7 +23,7 @@ export function GroupList({ groups }: GroupListProps) {
 						<CardHeader>
 							<CardTitle className="flex flex-row gap-2 whitespace-nowrap">
 								<span className="text-xl align-middle">{group.name}</span>
-								{(group.status === "active") && <BiBadgeCheck className="text-primary" />}
+								{(group.status === "active") && <BiBadgeCheck className="text-primary align-middle text-2xl" />}
 							</CardTitle>
 							<AttendeeCategories attendeeCategories={group.attendeeCategories} />
 							<CardDescription>
