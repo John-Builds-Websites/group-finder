@@ -19,20 +19,27 @@ export default async function GroupsPage() {
 		depth: 2,
 	});
 
-	const groups = groupsCollection.docs
+	const isVisibleGroup = (group) => {
+		// hidden group status			
+		if (group?.status === "archived") return false
+
+		// visible group status
+		if (group?.status === "active") return true
+		if (group?.status === "inactive") return true
+		if (group?.status === "pending") return true
+
+		// default
+		return false
+	}
+
+	const serverFilteredGroups = groupsCollection.docs
 		.map((doc) => doc)
-		.filter((group) => {
-			if (group.status === "active") return true
-			if (group.status === "inactive") return true
-			if (group.status === "pending") return true
-			if (group.status === "archived") return false
-			return false
-		});
+		.filter(isVisibleGroup);
 
 	return (
 		<Container>
 
-			<GroupList groups={groups} />
+			<GroupList groups={serverFilteredGroups} />
 		</Container>
 	);
 }
