@@ -31,7 +31,7 @@ export default async function GroupsPage() {
 
 	return (
 		<Container>
-			<h1>Groups</h1>
+
 			<GroupList groups={groups} />
 		</Container>
 	);
