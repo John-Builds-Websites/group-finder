@@ -1,3 +1,5 @@
+"use client"
+
 import { formatTime } from "@/lib/time";
 import type { Group } from "@/cms/payload-types";
 import { BiCalendarWeek } from "react-icons/bi";
@@ -7,8 +9,9 @@ type ScheduleProps = {
 };
 export function Schedule({ weeklySchedule }: ScheduleProps) {
 	return (<div className="bg-slate-100 rounded p-2 ">
-		<span>
-			<BiCalendarWeek />
+		<span className="flex flex-row gap-2">
+			<BiCalendarWeek className="text-xl"/>
+			
 			<h3>Schedule</h3>
 		</span>
 
@@ -23,7 +26,7 @@ export function Schedule({ weeklySchedule }: ScheduleProps) {
 				{schedule.weekdays.map(weekday => {
 					return (
 						<li key={weekday} className="py-1 flex flex-row">
-							<div className="capitalize font-bold w-16">{weekday}:</div> {formatTime(schedule.startTime)} - {formatTime(schedule.endTime)}
+							<span className="capitalize font-bold w-16">{weekday}:</span> {formatTime(schedule.startTime)} - {formatTime(schedule.endTime)}
 						</li>
 					);
 				})}
