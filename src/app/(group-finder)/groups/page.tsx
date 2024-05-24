@@ -2,6 +2,8 @@ import configPromise from "@/cms/payload.config";
 import Container from "@/components/layout/Container";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
 import { GroupList } from "../../../components/GroupList";
+import { GroupFilter } from "./GroupFilter";
+
 
 export default async function GroupsPage() {
 
@@ -18,6 +20,22 @@ export default async function GroupsPage() {
 		collection: "groups",
 		depth: 2,
 	});
+
+	const attendeeCategories = await payload.find({
+		collection: "attendee-categories",
+	});
+
+	const attendeeCategoryOptions = attendeeCategories.docs.map((doc) => doc);
+
+	const weekdayOptions = [
+		{ label: "Monday", value: "mon" },
+		{ label: "Tuesday", value: "tue" },
+		{ label: "Wednesday", value: "wed" },
+		{ label: "Thursday", value: "thu" },
+		{ label: "Friday", value: "fri" },
+		{ label: "Saturday", value: "sat" },
+		{ label: "Sunday", value: "sun" },
+	];
 
 	const isVisibleGroup = (group) => {
 		// hidden group status			
@@ -38,7 +56,7 @@ export default async function GroupsPage() {
 
 	return (
 		<Container>
-
+			<GroupFilter attendeeCategoryOptions={attendeeCategoryOptions} weekdayOptions={weekdayOptions}/>
 			<GroupList groups={serverFilteredGroups} />
 		</Container>
 	);
