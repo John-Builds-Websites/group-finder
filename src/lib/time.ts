@@ -1,3 +1,7 @@
+"use client"
+
+// Needs to be a client function because of hydration errors when using Intl.DateTimeFormat on the server
+
 // utility function to format iso date string to human readable time string
 
 export const formatTime = (isoDate: string) => {
