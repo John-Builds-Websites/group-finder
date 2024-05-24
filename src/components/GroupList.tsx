@@ -2,18 +2,20 @@
 
 import { AttendeeCategories } from "./AttendeeCategories";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import type { Group } from "@/cms/payload-types";
+import type { Group, AttendeeCategory, Schedule } from "@/cms/payload-types";
 import { BiBadgeCheck } from "react-icons/bi";
 
 import { GroupVenue } from "./GroupVenue";
-import { Schedule } from "./Schedule";
+import { ScheduleList } from "./ScheduleList";
 import { ContactDetails } from "./ContactDetails";
+import { useState } from "react";
 
 type GroupListProps = {
 	groups: Group[]
 }
 
 export function GroupList({ groups }: GroupListProps) {
+	const [attendeeCategoryFilter, setAttendeeCategoryFilter] = useState<AttendeeCategory[]>([])	
 	
 
 	const userFilteredGroups = groups.filter(group => group)
@@ -44,7 +46,7 @@ export function GroupList({ groups }: GroupListProps) {
 							</CardHeader>
 							<CardContent className="">
 								<p>{group.description}</p>
-								<Schedule weeklySchedule={group.weeklySchedule} />
+								<ScheduleList weeklySchedule={group.weeklySchedule} />
 								<ContactDetails contactDetails={group.contactDetails}></ContactDetails>
 								<GroupVenue venue={group.location} />
 							</CardContent>
