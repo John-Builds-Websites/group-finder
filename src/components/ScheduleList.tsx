@@ -7,7 +7,7 @@ import { BiCalendarWeek } from "react-icons/bi";
 type ScheduleProps = {
 	weeklySchedule: Group["weeklySchedule"];
 };
-export function Schedule({ weeklySchedule }: ScheduleProps) {
+export function ScheduleList({ weeklySchedule }: ScheduleProps) {
 	return (<div className="bg-slate-100 rounded p-2 ">
 		<span className="flex flex-row gap-2">
 			<BiCalendarWeek className="text-xl"/>
