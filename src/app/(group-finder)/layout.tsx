@@ -1,12 +1,17 @@
 // import Header from "@/components/header";
 // import { Toaster } from "@/components/ui/sonner";
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Roboto_Mono, Comfortaa } from "next/font/google";
-import type { Metadata } from "next";
-import { ReactNode } from "react";
 import "@/styles/globals.css";
-import { cn } from "@/lib/utils";
+
+import type { ReactNode } from "react";
+
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Comfortaa, Roboto_Mono } from "next/font/google";
+import type { Metadata } from "next";
+
 import NavBar from "@/components/layout/NavBar";
+import QueryProvider from "@/components/providers/QueryProvider";
+import { cn } from "@/lib/utils";
+
 
 export const metadata: Metadata = {
 	title: "Group Finder",
@@ -21,7 +26,6 @@ export const metadata: Metadata = {
 		"johnbuildswebsites",
 	],
 };
-
 
 const robotoMono = Roboto_Mono({
 	subsets: ["latin"],
@@ -46,18 +50,18 @@ export default function RootLayout({ children }: RootLayoutProps) {
 				className={cn(
 					"relative h-full bg-indigo-500 font-sans antialiased",
 					robotoMono.variable,
-					comfortaa.variable
+					comfortaa.variable,
 				)}
 			>
-				<SpeedInsights />
-				{/* <Header title="Test" /> */}
-				<main className="relative flex flex-col min-h-screen">
-					<NavBar />
-					<div className="flex-grow flex-1 p-2">
-						{children}
-						</div>
-				</main>
-				{/* <Toaster /> */}
+				<QueryProvider>
+					<SpeedInsights />
+					{/* <Header title="Test" /> */}
+					<main className="relative flex flex-col min-h-screen">
+						<NavBar />
+						<div className="flex-grow flex-1 p-2">{children}</div>
+					</main>
+					{/* <Toaster /> */}
+				</QueryProvider>
 			</body>
 		</html>
 	);
