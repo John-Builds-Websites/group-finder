@@ -1,5 +1,5 @@
 import { nanoid } from "nanoid";
-import { Field } from "payload/types";
+import type { Field } from "payload";
 
 export const CustomIDField: Field = {
   name: "id",
