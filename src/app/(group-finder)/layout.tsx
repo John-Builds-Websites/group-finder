@@ -1,17 +1,13 @@
-// import Header from "@/components/header";
-// import { Toaster } from "@/components/ui/sonner";
 import "@/styles/globals.css";
-
-import type { ReactNode } from "react";
-
-import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Comfortaa, Roboto_Mono } from "next/font/google";
-import type { Metadata } from "next";
 
 import NavBar from "@/components/layout/NavBar";
 import QueryProvider from "@/components/providers/QueryProvider";
 import { cn } from "@/lib/utils";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Comfortaa, Roboto_Mono } from "next/font/google";
 
+import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 export const metadata: Metadata = {
 	title: "Group Finder",
