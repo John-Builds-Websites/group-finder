@@ -1,9 +1,9 @@
-import path from 'path'
+import path from 'node:path'
 // import sharp from 'sharp'
-import { fileURLToPath } from 'url'
+import { fileURLToPath } from 'node:url'
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
-import { buildConfig } from 'payload/config'
+// import { lexicalEditor } from '@payloadcms/richtext-lexical' // editor-import
+import { buildConfig } from 'payload'
 
 import collections, { Users } from './collections'
 
@@ -29,7 +29,7 @@ export default buildConfig({
   // hooks: {
   //   // Add your hooks here
   // },
-  editor: lexicalEditor({}),
+  // editor: lexicalEditor({}),
   secret: process.env.PAYLOAD_SECRET || '',
   typescript: {
     outputFile: path.resolve(dirname, 'payload-types.ts'),
