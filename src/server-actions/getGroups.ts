@@ -1,5 +1,8 @@
 "use server"
 
+import configPromise from "@/cms/payload.config";
+import { getPayloadHMR } from "@payloadcms/next/utilities";
+
 export async function getGroups() {
   const payload = await getPayloadHMR({
     config: configPromise,
