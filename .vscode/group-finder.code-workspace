@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"biome.enabled": true,
+		"biome.rename": true,
+		"editor.tabSize": 2,
+		"editor.codeActionsOnSave": {
+			"quickfix.biome": "explicit"
+		  }
+	}
+}
