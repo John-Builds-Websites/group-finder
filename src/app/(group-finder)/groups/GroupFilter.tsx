@@ -1,15 +1,18 @@
-import { AttendeeCategory } from "@/cms/payload-types";
+import type { AttendeeCategory } from "@/cms/payload-types";
 import { AttendeeCategories } from "@/components/AttendeeCategories";
 
 type GroupFilterProps = {
-	attendeeCategoryOptions: AttendeeCategory[]
-	weekdayOptions: { label: string, value: string }[]
+	attendeeCategoryOptions: AttendeeCategory[];
+	weekdayOptions: { label: string; value: string }[];
 	// getFiltered: () => any;
 };
 
-export function GroupFilter({ attendeeCategoryOptions,weekdayOptions }: GroupFilterProps) {
+export function GroupFilter({
+	attendeeCategoryOptions,
+	weekdayOptions,
+}: GroupFilterProps) {
 	return (
-		<div className="flex flex-col gap-2 p-2 bg-white rounded mb-2">
+		<div className="flex flex-col gap-2 bg-white mb-2 p-2 rounded">
 			<p>Filter By: </p>
 			<div className="flex flex-row">
 				<p>Attendee Type: </p>
@@ -17,17 +20,14 @@ export function GroupFilter({ attendeeCategoryOptions,weekdayOptions }: GroupFil
 			</div>
 			<div className="flex flex-row">
 				<p>Day: </p>
-				{weekdayOptions?.map((weekday) => {
+				{weekdayOptions?.map(({ label, value }) => {
 					return (
-						<div key={weekday.value}>
-							<input type="checkbox" id={weekday.value} name={weekday.value} value={weekday.value} />
-							<label htmlFor={weekday.value}>{weekday.label}</label>
+						<div key={value}>
+							<input type="checkbox" id={value} name={value} value={value} />
+							<label htmlFor={value}>{label}</label>
 						</div>
 					);
-				}
-				)
-				}
-
+				})}
 			</div>
 			<div className="flex flex-row">
 				<p>Time: </p>
@@ -37,7 +37,9 @@ export function GroupFilter({ attendeeCategoryOptions,weekdayOptions }: GroupFil
 					<option value="evening">Evening</option>
 				</select>
 			</div>
-			<button className="btn btn-primary">Apply Filters</button>
+			<button type="button" className="btn btn-primary">
+				Apply Filters
+			</button>
 		</div>
 	);
 }
