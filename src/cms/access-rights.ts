@@ -10,22 +10,20 @@ export const adminOnly: Access = async ({ req }) => {
 	return false;
 };
 
-export const moderators: Access =
-	async ({ req }) => {
-		const user = req.user as User | undefined;
+export const moderators: Access = async ({ req }) => {
+	const user = req.user as User | undefined;
 
-		if (!user) return false;
-		if (user?.role === "moderator") return true;
-		if (user?.role === "admin") return true;
+	if (!user) return false;
+	if (user?.role === "moderator") return true;
+	if (user?.role === "admin") return true;
 
-		return false;
-	};
+	return false;
+};
 
-export const allUsers: Access =
-	async ({ req }) => {
-		const user = req.user as User | undefined;
+export const allUsers: Access = async ({ req }) => {
+	const user = req.user as User | undefined;
 
-		//# always return true for all users
-		if (!user) return false;
-		return true;
-	};
+	//# always return true for all users
+	if (!user) return false;
+	return true;
+};
