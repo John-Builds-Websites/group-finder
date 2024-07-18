@@ -1,7 +1,7 @@
-import { GROUP_STATUSES } from "@/config";
-import type { CollectionConfig } from "payload/types";
-import slugify from "slugify";
 import { ContactDetailsField } from "@/cms/fields/ContactDetailsField";
+import { GROUP_STATUSES } from "@/config";
+import type { CollectionConfig } from "payload";
+import slugify from "slugify";
 import { adminOnly } from "../access-rights";
 
 export const Groups: CollectionConfig = {
