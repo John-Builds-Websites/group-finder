@@ -1,4 +1,4 @@
-import { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 import { adminOnly } from "../access-rights";
 
 export const AttendeeCategories: CollectionConfig = {
