@@ -1,4 +1,4 @@
-import { AttendeeCategory } from "@/cms/payload-types";
+import type { AttendeeCategory } from "@/cms/payload-types";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 import { AttendeeTypeBadge } from "./AttendeeTypeBadge";
 
@@ -12,7 +12,7 @@ export function AttendeeCategories({ attendeeCategories }: AttendeeCategoriesPro
 	if (!attendeeCategories) return null;
 
 	return (
-		<div className="flex flex-row gap-2 flex-wrap">
+		<div className="flex flex-row flex-wrap gap-2">
 			<TooltipProvider>
 
 				{attendeeCategories?.map(attendeeType => {
