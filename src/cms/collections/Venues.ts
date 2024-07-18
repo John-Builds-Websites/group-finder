@@ -1,16 +1,15 @@
-import type { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 
 // Locations of Groups, with full address and google maps integration
 export const Venues: CollectionConfig = {
 	slug: "locations",
-  labels: {
-    singular: "Venue",
-    plural: "Venues",
-  },
+	labels: {
+		singular: "Venue",
+		plural: "Venues",
+	},
 	admin: {
 		useAsTitle: "name",
 		defaultColumns: ["name", "address", "postcode"],
-		
 	},
 	fields: [
 		{
@@ -20,13 +19,13 @@ export const Venues: CollectionConfig = {
 			required: true,
 			unique: true,
 		},
-    {
-      name: "address",
-      label: "Address",
-      type: "textarea",
-      required: true,
-    },
-    
+		{
+			name: "address",
+			label: "Address",
+			type: "textarea",
+			required: true,
+		},
+
 		{
 			name: "postcode",
 			label: "Postcode",

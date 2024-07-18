@@ -1,4 +1,4 @@
-import type { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 
 // Locations of Groups, with full address and google maps integration
 export const Locations: CollectionConfig = {
@@ -6,7 +6,6 @@ export const Locations: CollectionConfig = {
 	admin: {
 		useAsTitle: "name",
 		defaultColumns: ["name", "address", "postcode"],
-		
 	},
 	fields: [
 		{
@@ -16,12 +15,12 @@ export const Locations: CollectionConfig = {
 			required: true,
 			unique: true,
 		},
-    {
-      name: "address",
-      label: "Address",
-      type: "textarea",
-      required: true,
-    },
+		{
+			name: "address",
+			label: "Address",
+			type: "textarea",
+			required: true,
+		},
 		{
 			name: "postcode",
 			label: "Postcode",

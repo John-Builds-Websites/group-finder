@@ -1,10 +1,10 @@
-import type { CollectionConfig } from "payload/types";
+import type { CollectionConfig } from "payload";
 
 export const Users: CollectionConfig = {
 	slug: "users",
 	admin: {
 		useAsTitle: "email",
-		defaultColumns: ["firstName",	"lastName", "role"],
+		defaultColumns: ["firstName", "lastName", "role"],
 	},
 	auth: true,
 	fields: [
@@ -45,6 +45,6 @@ export const Users: CollectionConfig = {
 			type: "relationship",
 			relationTo: "groups",
 			hasMany: true,
-		}
+		},
 	],
 };
