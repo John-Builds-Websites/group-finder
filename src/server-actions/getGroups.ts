@@ -1,4 +1,5 @@
 "use server"
+import type { Group } from "@/cms/payload-types";
 
 import configPromise from "@/cms/payload.config";
 import { getPayloadHMR } from "@payloadcms/next/utilities";
@@ -35,17 +36,34 @@ export async function getGroups() {
     { label: "Sunday", value: "sun" },
   ];
 
-  const isVisibleGroup = (group) => {
+
+
+  const isVisibleGroup = (group: Group | undefined): boolean => {
     // hidden group status			
-    if (group?.status === "archived") return false
+    if (group?.status === "archived") return false;
 
     // visible group status
-    if (group?.status === "active") return true
-    if (group?.status === "inactive") return true
-    if (group?.status === "pending") return true
+    if (group?.status === "active") return true;
+    if (group?.status === "inactive") return true;
+    if (group?.status === "pending") return true;
 
     // default
-    return false
+    return false;
+  };
+
+  const isSelectedWeekday = (group: Group | undefined, weekdays: typeof weekdayOptions): boolean => {
+    // hidden groups
+    if (!group?.weeklySchedule) return false;
+
+    // visible groups
+    const selectedWeekdays = group.weeklySchedule.map(({ schedule }) => {
+      if (!schedule) return;
+      if (typeof schedule === "string") return;
+      if (!schedule.weekdays) return;
+      return schedule.weekdays;
+    });
+
+    return false;
   }
 
   const serverFilteredGroups = groupsCollection.docs
