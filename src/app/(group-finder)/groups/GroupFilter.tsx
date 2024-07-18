@@ -1,16 +1,27 @@
 import type { AttendeeCategory } from "@/cms/payload-types";
 import { AttendeeCategories } from "@/components/AttendeeCategories";
+import { Button } from "@/components/ui/button";
 
 type GroupFilterProps = {
 	attendeeCategoryOptions: AttendeeCategory[];
-	weekdayOptions: { label: string; value: string }[];
-	// getFiltered: () => any;
 };
 
 export function GroupFilter({
 	attendeeCategoryOptions,
-	weekdayOptions,
+
 }: GroupFilterProps) {
+
+		const weekdayOptions = [
+		{ label: "Monday", value: "mon" },
+		{ label: "Tuesday", value: "tue" },
+		{ label: "Wednesday", value: "wed" },
+		{ label: "Thursday", value: "thu" },
+		{ label: "Friday", value: "fri" },
+		{ label: "Saturday", value: "sat" },
+		{ label: "Sunday", value: "sun" },
+	];
+
+
 	return (
 		<div className="flex flex-col gap-2 bg-white mb-2 p-2 rounded">
 			<p>Filter By: </p>
@@ -18,6 +29,7 @@ export function GroupFilter({
 				<p>Attendee Type: </p>
 				<AttendeeCategories attendeeCategories={attendeeCategoryOptions} />
 			</div>
+			
 			<div className="flex flex-row">
 				<p>Day: </p>
 				{weekdayOptions?.map(({ label, value }) => {
@@ -29,6 +41,7 @@ export function GroupFilter({
 					);
 				})}
 			</div>
+
 			<div className="flex flex-row">
 				<p>Time: </p>
 				<select name="time" id="time">
@@ -37,9 +50,10 @@ export function GroupFilter({
 					<option value="evening">Evening</option>
 				</select>
 			</div>
-			<button type="button" className="btn btn-primary">
+
+			<Button type="button" className="btn btn-primary">
 				Apply Filters
-			</button>
+			</Button>
 		</div>
 	);
 }

@@ -4,6 +4,9 @@ import { getPayloadHMR } from "@payloadcms/next/utilities";
 import { GroupList } from "../../../components/GroupList";
 import { GroupFilter } from "./GroupFilter";
 
+import type { Group } from "@/cms/payload-types";
+import { Card } from "@/components/ui/card";
+
 export default async function GroupsPage() {
 	const payload = await getPayloadHMR({
 		config: configPromise,
@@ -14,52 +17,45 @@ export default async function GroupsPage() {
 		},
 	});
 
-	const groupsCollection = await payload.find({
+	const {docs: groupsCollection} = await payload.find({
 		pagination: true,
 		collection: "groups",
-		depth: 2,
-	});
+		where: {
+			status: {
+				not_equals: "archived",
+			},
+		},
+	}
+	);
 
 	const attendeeCategories = await payload.find({
 		collection: "attendee-categories",
 	});
 
-	const attendeeCategoryOptions = attendeeCategories.docs.map((doc) => doc);
+	// FILTER OPTIONS
 
-	const weekdayOptions = [
-		{ label: "Monday", value: "mon" },
-		{ label: "Tuesday", value: "tue" },
-		{ label: "Wednesday", value: "wed" },
-		{ label: "Thursday", value: "thu" },
-		{ label: "Friday", value: "fri" },
-		{ label: "Saturday", value: "sat" },
-		{ label: "Sunday", value: "sun" },
-	];
+	const attendeeCategoryOptions = attendeeCategories.docs;
 
-	const isVisibleGroup = (group) => {
-		// hidden group status
-		if (group?.status === "archived") return false;
-
-		// visible group status
-		if (group?.status === "active") return true;
-		if (group?.status === "inactive") return true;
-		if (group?.status === "pending") return true;
-
-		// default
-		return false;
-	};
-
-	const serverFilteredGroups = groupsCollection.docs
-		.map((doc) => doc)
-		.filter(isVisibleGroup);
 
 	return (
 		<Container>
 			<GroupFilter
 				attendeeCategoryOptions={attendeeCategoryOptions}
-				weekdayOptions={weekdayOptions}
 			/>
-			<GroupList groups={serverFilteredGroups} />
+			<div className="flex flex-col gap-2">
+				{/* <Card>
+					<pre>
+						{JSON.stringify(attendeeCategoryOptions, null, 2)}
+					</pre>
+				</Card> */}
+				<Card>
+					<pre>
+						{JSON.stringify(groupsCollection, null, 2)}
+					</pre>
+
+				</Card>
+			</div>
+			<GroupList groups={groupsCollection} />
 		</Container>
 	);
 }
