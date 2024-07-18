@@ -1,5 +1,5 @@
-import { User } from "@payload-types";
-import { Access } from "payload/types";
+import type { User } from "@payload-types";
+import type { Access } from "payload";
 
 export const adminOnly: Access = async ({ req }) => {
 	const user = req.user as User | undefined;
